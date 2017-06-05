@@ -11,7 +11,7 @@ var express = require('express'),
  ***************/
 var app = module.exports = express();
 app.engine('html', require('ejs').renderFile);
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/app/views');
 app.set('view engine', 'html');
 // This sets the root directory of the web server --> "" = current directory
@@ -35,6 +35,7 @@ app.route('/favicon.ico').get(function(req, res) {
     res.sendStatus(204);
 }); 
 app.route('/').get(rts.index);
-// app.route('/:name').get(rts.partials);
+app.route('/python/:name').get(rts.python)
+app.route('/:name').get(rts.partials);
 // app.route('*').get(rts.index);
 
