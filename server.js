@@ -35,7 +35,7 @@ app.route('/favicon.ico').get(function(req, res) {
     res.sendStatus(204);
 }); 
 app.route('/').get(rts.index);
-app.route('/python/:name').get(rts.python)
 app.route('/:name').get(rts.partials);
+var ret = app.route('/python/:name').post(rts.python)
 // app.route('*').get(rts.index);
 

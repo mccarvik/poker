@@ -1,4 +1,4 @@
-import sys
+import sys, json
 sys.path.append("/home/ubuntu/workspace/poker")
 from app.deck_cards.card import Card
 from app.deck_cards.deck import Deck
@@ -10,9 +10,15 @@ def run_simulation(hand, board):
     deck = Deck()
     print(deck._cards)
     
-    
+def read_in():
+    lines = sys.stdin.readlines()
+    print(lines)
+    # Since our input would only be having one line, parse our JSON data from that
+    # return json.loads(lines[0])
 
 if __name__ == "__main__":
-    hand = [('A','h'), ('A', 's')]
-    board = []
-    run_simulation(hand, board)
+    lines = read_in()
+    # print(lines)
+    # hand = [('A','h'), ('A', 's')]
+    # board = []
+    # run_simulation(hand, board)

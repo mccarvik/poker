@@ -1,4 +1,4 @@
-libraries to use:
+libraries this project uses
 
 HTML: angular / bootstrap
 CSS: SASS
