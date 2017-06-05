@@ -1,9 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html ng-app="poker">
+
    <head>
-      <title>Home</title>
+      <meta charset="utf-8">
+      <title>Poker</title>
+      <script>
+         document.write('<base href="' + document.location + '" />');
+      </script>
+      <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css">
+      <link rel="stylesheet"  href="app/stylesheets/base.css" />
+
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+      <script src="app/scripts/nav_bar.js"></script>
    </head>
-   
-   <body>
-      Hello Poker World!
+ 
+   <body >
+     <div class="container">
+       
+       <div class="navbar">
+         <ul class="nav navbar-nav" ng-controller="NavCtrl">      
+           <li ng-class="navClass('single_hand')"><a href='#/single_hand'>Single Hand Odds</a></li>
+           <li ng-class="navClass('multi_hand')"><a href='#/multi_hand'>Multi Hand Odds</a></li>
+           <li ng-class="navClass('play_live')"><a href='#/live'>Play Live</a></li>
+         </ul>
+       </div>
+     </div>
+     <div ng-view> </div>
    </body>
 </html>
