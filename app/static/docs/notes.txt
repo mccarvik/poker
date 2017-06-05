@@ -1,0 +1,12 @@
+libraries to use:
+
+HTML: angular / bootstrap
+CSS: SASS
+JS:
+    - server: nodejs, express
+    - adding elements: jquery
+DB: mongodb
+Python backend:
+    - numpy, pandas
+API: RESTApi
+Version Control: Git
