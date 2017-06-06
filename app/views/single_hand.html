@@ -7,16 +7,10 @@
    </head>
    
    <body>
-      <div ng-app="pker" ng-controller="DropDownCtrl">
-         <select ng-model="selectedName" ng-options="x for x in vals"></select>
+      <div ng-controller="SingleHandCtrl">
+         <select ng-model="selectedName" ng-options="x for x in suits"></select>
       </div>
       
       <button id="run_sim_btn" class='btn btn-primary' onclick="run_simulation();"></button>
    </body>
 </html>
-
-
-      <!--   var app = angular.module('poker', []);-->
-      <!--   app.controller('DropDownCtrl', function($scope) {-->
-      <!--   $scope.names = ["Emil", "Tobias", "Linus"];-->
-      <!--   });-->

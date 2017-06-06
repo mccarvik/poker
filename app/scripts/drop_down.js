@@ -1,6 +1,6 @@
 var app = angular.module("poker")
 
-app.controller('DropDownCtrl', function ($scope) {
+app.controller('DropDownCtrl', ['$scope', function ($scope) {
     $scope.vals = [
         { v : 'A' },
         { v : 'K' },
@@ -17,9 +17,9 @@ app.controller('DropDownCtrl', function ($scope) {
         { v : '2' },
     ];
     $scope.suits = [
-        { s : 'S' },
-        { s : 'H' },
-        { s : 'D' },
-        { s : 'C' },
+        'S',
+        'H',
+        'D',
+        'C'
     ];
-});
+}]);
