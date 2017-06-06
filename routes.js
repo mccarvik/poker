@@ -17,25 +17,23 @@ exports.partials = function (req, res) {
 exports.python = function (req, res) {
   var name = req.params.name;
   console.log(name);
-  res.send('We got here, now do python stuff');
-  var myPythonScriptPath = '/app/run_handler.py';
+  var myPythonScriptPath = '/app/handlers/' + name;
   // Use python shell
   var PythonShell = require('python-shell');
-  var options = "ddd";
-  PythonShell.run(myPythonScriptPath, options, function (err, results) {
-    if (err) throw err;
-    // results is an array consisting of messages collected during execution
-    console.log('results: %j', results);
-    });
-  
-  // pyshell.end(function (err) {
-  //   if (err)
-  //     throw err;
-  // });
-  
-  // script.run_simulation([['A','h'],['A','s']], [])
+  var pyshell = new PythonShell(myPythonScriptPath);
+  var options = JSON.stringify([1,2,3,4,5]);
+  pyshell.send(options);
+  pyshell.on('message', function (message) {
+    console.log(message);
+  });
+
+  pyshell.end(function (err) {
+    if (err)
+      throw err;
+    console.log('finished');
+  });
   res.send('finished python stuff');
-  
 };
+
 // http://www.sohamkamani.com/blog/2015/08/21/python-nodejs-comm/
 // http://ourcodeworld.com/articles/read/286/how-to-execute-a-python-script-and-retrieve-output-data-and-errors-in-node-js

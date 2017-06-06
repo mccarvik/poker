@@ -12,13 +12,12 @@ def run_simulation(hand, board):
     
 def read_in():
     lines = sys.stdin.readlines()
-    print(lines)
     # Since our input would only be having one line, parse our JSON data from that
-    # return json.loads(lines[0])
+    return json.loads(lines[0])
 
 if __name__ == "__main__":
-    lines = read_in()
-    # print(lines)
+    args = read_in()
+    print(args)
     # hand = [('A','h'), ('A', 's')]
     # board = []
     # run_simulation(hand, board)

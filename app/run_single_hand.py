@@ -9,8 +9,6 @@ def run_simulation(hand, board):
     board = [Card(h[0],h[1]) for h in board]
     deck = Deck()
     print(deck._cards)
-    
-    
 
 if __name__ == "__main__":
     hand = [('A','h'), ('A', 's')]
