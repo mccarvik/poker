@@ -32,3 +32,6 @@ class Deck():
     
     def drawRandom(self):
         pass
+
+    def removeCards(cards):
+        pass

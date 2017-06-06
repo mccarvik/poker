@@ -1,4 +1,4 @@
-import sys, json
+import sys, json, pdb
 sys.path.append("/home/ubuntu/workspace/poker")
 from app.deck_cards.card import Card
 from app.deck_cards.deck import Deck
@@ -8,21 +8,11 @@ def run_simulation(hand, board):
     hand = [Card(h[0],h[1]) for h in hand]
     board = [Card(h[0],h[1]) for h in board]
     deck = Deck()
+    pdb.set_trace()
+    deck.removeUsedCards([c for c in (hand + board)])
     print(deck._cards)
-
-
-
-
-
-def read_in():
-    lines = sys.stdin.readlines()
-    # Since our input would only be having one line, parse our JSON data from that
-    return json.loads(lines[0])
-
-if __name__ == "__main__":
-    # args = read_in()
-    # hand, board = cleanInputs(args)
     
+if __name__ == "__main__":
     hand = [('A','h'), ('A', 's')]
-    board = []
+    board = [('A','c'), ('K', 's'), ('K', 'd'), ('K', 'h')]
     run_simulation(hand, board)
