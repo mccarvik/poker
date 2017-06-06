@@ -3,14 +3,17 @@
    <head>
       <title>Single Hand Odds</title>
       <script src="/app/scripts/run_simulation.js"></script>
-      <script src="/app/scripts/drop_down.js"></script>
    </head>
    
    <body>
       <div ng-controller="SingleHandCtrl">
-         <select ng-model="selectedName" ng-options="x for x in suits"></select>
+         <select class='card_sel' ng-model="Card1" ng-options="x for x in suits"></select>
+         <select class='card_sel' ng-model="Card1" ng-options="x for x in vals"></select>
       </div>
-      
+      <!--<select class="selectpicker" data-style="btn-primary">Suit</select>-->
+      <!--<div class="dropdown" ng-controller="SingleHandCtrl">-->
+      <!--   <select class="selectpicker show-tick" data-style="btn-primary" ng-model='Card1' ng-options="s in suits">Suit</select>-->
+      <!--</div>-->
       <button id="run_sim_btn" class='btn btn-primary' onclick="run_simulation();"></button>
    </body>
 </html>

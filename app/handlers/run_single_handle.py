@@ -9,15 +9,20 @@ def run_simulation(hand, board):
     board = [Card(h[0],h[1]) for h in board]
     deck = Deck()
     print(deck._cards)
-    
+
+
+
+
+
 def read_in():
     lines = sys.stdin.readlines()
     # Since our input would only be having one line, parse our JSON data from that
     return json.loads(lines[0])
 
 if __name__ == "__main__":
-    args = read_in()
-    print(args)
-    # hand = [('A','h'), ('A', 's')]
-    # board = []
-    # run_simulation(hand, board)
+    # args = read_in()
+    # hand, board = cleanInputs(args)
+    
+    hand = [('A','h'), ('A', 's')]
+    board = []
+    run_simulation(hand, board)
