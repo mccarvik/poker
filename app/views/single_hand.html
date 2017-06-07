@@ -3,24 +3,36 @@
    <head>
       <title>Single Hand Odds</title>
       <script src="/app/scripts/run_simulation.js"></script>
+      <script>
+         $(document).ready(function() {
+            $('.selectpicker').selectpicker();
+         });
+      </script>
    </head>
    
    <body>
-      <div ng-controller="SingleHandCtrl">
-         <select title='Suits' class="card selectpicker show-tick" data-style="btn-primary">
-             <option>&spades;</option>
-             <option>&hearts;</option>
-             <option>&diams;</option>
-             <option>&clubs;</option>
-         </select>
-         <select title='Suits' class="card" data-style="btn-primary">
-             <option>&spades;</option>
-             <option>&hearts;</option>
-             <option>&diams;</option>
-             <option>&clubs;</option>
-         </select>
+      <div class="container-fluid">
+         <div ng-controller="SingleHandCtrl">
+            <div class="row">
+               <div class="col-xs-3">
+                  <select title='Suits' class="card-select selectpicker show-tick" data-style="btn-info">
+                      <option>&spades;</option>
+                      <option>&hearts;</option>
+                      <option>&diams;</option>
+                      <option>&clubs;</option>
+                  </select>
+               </div>
+               <div class="col-xs-3">
+                  <select title='Value' class="card-select selectpicker show-tick" data-style="btn-info">
+                      <option>&spades;</option>
+                      <option>&hearts;</option>
+                      <option>&diams;</option>
+                      <option>&clubs;</option>
+                  </select>
+               </div>
+            </div>
+         </div>
       </div>
-      
       <!--<div ng-controller="SingleHandCtrl">-->
       <!--   <select name='adad'></select>-->
       <!--   <select class="selectpicker" name='Suit' multiple title='Suit'>-->

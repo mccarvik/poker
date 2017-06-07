@@ -1,6 +1,10 @@
 body {
     background-color : #277714;
-    color : #00008B;
+    color : #000080;
+}
+
+.card-select {
+    width : 50px;
 }
 
 
