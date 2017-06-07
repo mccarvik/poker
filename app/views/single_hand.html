@@ -7,13 +7,37 @@
    
    <body>
       <div ng-controller="SingleHandCtrl">
-         <select class='card_sel' ng-model="Card1" ng-options="x for x in suits"></select>
-         <select class='card_sel' ng-model="Card1" ng-options="x for x in vals"></select>
+         <select title='Suits' class="card selectpicker show-tick" data-style="btn-primary">
+             <option>&spades;</option>
+             <option>&hearts;</option>
+             <option>&diams;</option>
+             <option>&clubs;</option>
+         </select>
+         <select title='Suits' class="card" data-style="btn-primary">
+             <option>&spades;</option>
+             <option>&hearts;</option>
+             <option>&diams;</option>
+             <option>&clubs;</option>
+         </select>
       </div>
-      <!--<select class="selectpicker" data-style="btn-primary">Suit</select>-->
-      <!--<div class="dropdown" ng-controller="SingleHandCtrl">-->
-      <!--   <select class="selectpicker show-tick" data-style="btn-primary" ng-model='Card1' ng-options="s in suits">Suit</select>-->
+      
+      <!--<div ng-controller="SingleHandCtrl">-->
+      <!--   <select name='adad'></select>-->
+      <!--   <select class="selectpicker" name='Suit' multiple title='Suit'>-->
+      <!--      <option color='black'>Spades</option>-->
+      <!--   </select>-->
       <!--</div>-->
+      <!--   <select class='selectpicker' data-style="btn-primary">Suit</select>-->
+      <!--   <select class='card_sel' ng-model="Card1" ng-options="x for x in suits"></select>-->
+      <!--   <select class='card_sel' ng-model="Card1" ng-options="x for x in vals"></select>-->
+      <!--</div>-->
+      
+      <!--<select class="selectpicker show-tick"  ng-model='Card1' >Suit-->
+      <!--   <option color='red'>H<i class='fa fa-heart'></i></option>-->
+      <!--   <option color='black'>S</option>-->
+      <!--   <option color='black'>C</option>-->
+      <!--   <option color='red'>D</option>-->
+      <!--</select>-->
       <button id="run_sim_btn" class='btn btn-primary' onclick="run_simulation();"></button>
    </body>
 </html>

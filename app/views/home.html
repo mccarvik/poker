@@ -7,11 +7,20 @@
       <script>
          document.write('<base href="' + document.location + '" />');
       </script>
-      <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css">
-      <link rel="stylesheet"  href="app/stylesheets/base.css" />
-      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-      <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.js"></script>
+      <!-- Order of these loads incredibly important, if a file is dependent on another file, load the independent first -->
+      <!--JQuery and angular first-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+      
+      <!--Then bootstrap in order of most general to most specific-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+      
+      <!--Load custom stuff last-->
+      <link rel="stylesheet"  href="app/stylesheets/base.css"/>
       <script src="app/scripts/nav_bar.js"></script>
    </head>
  
@@ -20,9 +29,9 @@
        
        <div class="navbar">
          <ul class="nav navbar-nav" ng-controller="NavCtrl">      
-           <li ng-class="navClass('single_hand')"><a href='#/single_hand'>Single Hand Odds</a></li>
-           <li ng-class="navClass('multi_hand')"><a href='#/multi_hand'>Multi Hand Odds</a></li>
-           <li ng-class="navClass('play_live')"><a href='#/live'>Play Live</a></li>
+           <li color='#000080' ng-class="navClass('single_hand')"><a href='#/single_hand'>Single Hand Odds</a></li>
+           <li color='#000080' ng-class="navClass('multi_hand')"><a href='#/multi_hand'>Multi Hand Odds</a></li>
+           <li color='#000080' ng-class="navClass('play_live')"><a href='#/live'>Play Live</a></li>
          </ul>
        </div>
      </div>
