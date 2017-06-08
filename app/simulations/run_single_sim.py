@@ -12,9 +12,11 @@ def run_simulation(hand, board):
     deck.removeCards(hand + board)
     hand_combs = getCombinations(deck, 7-len(hand+board))
     print(hand_combs)
+    for hc in hand_combs:
+        print(hand_combs)
+        
     
 if __name__ == "__main__":
     hand = [('A','h'), ('A', 's')]
     board = [('A','c'), ('K', 's'), ('K', 'd'), ('K', 'h')]
-    board = [('A','c'), ('K', 's'), ('K', 'd')]
     run_simulation(hand, board)
