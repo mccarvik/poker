@@ -2,6 +2,7 @@ import sys, json, pdb
 sys.path.append("/home/ubuntu/workspace/poker")
 from app.deck_utils.card import Card
 from app.deck_utils.deck import Deck
+from app.deck_utils.hand_rules import HandRules
 from app.deck_utils.deck_funcs import getCombinations
 
 def run_simulation(hand, board):
@@ -11,12 +12,13 @@ def run_simulation(hand, board):
     deck = Deck()
     deck.removeCards(hand + board)
     hand_combs = getCombinations(deck, 7-len(hand+board))
-    print(hand_combs)
     for hc in hand_combs:
-        print(hand_combs)
+        print([hc[0]] + hand + board)
+        stat = HandRules([hc[0]] + hand + board)
+        
         
     
 if __name__ == "__main__":
-    hand = [('A','h'), ('A', 's')]
-    board = [('A','c'), ('K', 's'), ('K', 'd'), ('K', 'h')]
+    hand = [('2','h'), ('K', 'h')]
+    board = [('3','d'), ('4', 'h'), ('7', 's'), ('9', 'c')]
     run_simulation(hand, board)
