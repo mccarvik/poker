@@ -15,20 +15,10 @@
          <div ng-controller="SingleHandCtrl">
             <div class="row">
                <div class="col-xs-3">
-                  <select title='Suits' class="card-select selectpicker show-tick" data-style="btn-info">
-                      <option>&spades;</option>
-                      <option>&hearts;</option>
-                      <option>&diams;</option>
-                      <option>&clubs;</option>
-                  </select>
+                  <select title='Suit' class="card-select selectpicker show-tick" data-style="btn-info" ng-model="Card1" ng-options="x for x in suits"></select>
                </div>
                <div class="col-xs-3">
-                  <select title='Value' class="card-select selectpicker show-tick" data-style="btn-info">
-                      <option>&spades;</option>
-                      <option>&hearts;</option>
-                      <option>&diams;</option>
-                      <option>&clubs;</option>
-                  </select>
+                  <select title='Value' class="card-select selectpicker show-tick" data-style="btn-info" ng-model="Card1" ng-options="x for x in vals"></select>
                </div>
             </div>
          </div>

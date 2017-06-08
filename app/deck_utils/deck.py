@@ -1,4 +1,5 @@
-from app.deck_cards.card import Card
+import pdb
+from app.deck_utils.card import Card
 
 class Deck():
     ''' Class to represent a deck of cards '''
@@ -33,5 +34,12 @@ class Deck():
     def drawRandom(self):
         pass
 
-    def removeCards(cards):
-        pass
+    def removeCards(self, cards):
+        pdb.set_trace()
+        for c in cards:
+            try:
+                self._cards.remove(c)
+            except:
+                print("Card Already Used")
+                raise AssertionError
+    
