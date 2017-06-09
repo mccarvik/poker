@@ -72,15 +72,34 @@ class HandRules():
     
     def checkPairs(self):
         pdb.set_trace()
-        mode_card = mode([n._val for n in self._hand])
+        hand = self._hand
+        mode_card = mode([n._val for n in hand])
         
         if mode_card[1][0] == 4:
-            left = [c for c in self._hand if c._val != mode_card[0][0]]
+            left = [c for c in hand if c._val != mode_card[0][0]]
             return (7, [mode_card[0][0], left[0]])
         elif mode_card[1][0] == 1:
             return (0, self._hand[:5])
         elif mode_card[1][0] == 3:
-            pass
-    
+            trip = mode_card[0][0]
+            hand = [h for h in hand if h._val != trip]
+            mode_2 = mode([n._val for n in hand])
+            if mode_2[1][0] > 1:
+                pair = mode_2[0][0]
+                return (6, [trip, pair])
+            else:
+                left = hand[:2]
+                return (3, [trip, left])
+        elif mode_card[1][0] == 2:
+            pair = mode_card[0][0]
+            hand = [h for h in hand if h._val != pair]
+            mode_2 = mode([n._val for n in hand])
+            if mode_2[1][0] > 1:
+                left = hand[:1]
+                pair2 = mode_2[0][0]
+                return (2, [pair, pair2, left])
+            else:
+                left = hand[:3]
+                return (1, [pair, left])
         return None
         
