@@ -50,10 +50,10 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
         '2'
     ];
     $scope.suits = [
-        '\u2660',   // Spades
-        '\u2665',   // Hearts
-        '\u2666',  // Diamonds
-        '\u2663' // Clubs
+        'S',
+        'H',
+        'D',
+        'C'
     ];
 });
 
