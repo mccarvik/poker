@@ -31,6 +31,10 @@ HAND_MAP = {
 def getCombinations(deck, cards_needed):
     deck = deck._cards
     return list(combinations(deck, cards_needed))
+
+def evaluateWinner(hands):
+    # should take in a list and return a list of corresponding outocmes
+    pass
     
     
     

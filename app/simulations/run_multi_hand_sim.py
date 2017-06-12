@@ -3,7 +3,7 @@ sys.path.append("/home/ubuntu/workspace/poker")
 from app.deck_utils.card import Card
 from app.deck_utils.deck import Deck
 from app.deck_utils.hand_rules import HandRules
-from app.deck_utils.deck_funcs import getCombinations
+from app.deck_utils.deck_funcs import getCombinations, evaluateWinner
 from app.deck_utils.stats import Multi_Stats
 
 def run_simulation(hands, board):
@@ -19,13 +19,22 @@ def run_simulation(hands, board):
         stats[str(h[0])+str(h[1])] = Multi_Stats()
         
     for hc in hand_combs:
+        hr = {}
         for h in hands:
             print([hc[0]] + h + board)
-            hr = HandRules([hc[0]] + h + board)
-            stats[str(h[0])+str(h[1])].addOutCome(hr._result)
+            
+            # TODO : Stuff here
+            res = HandRules([hc[0]] + h + board)
+            
+            hr[str(h[0])+str(h[1])] = res
+            
+        hr = evaluateWinner(hr)
+        for h in hr:
+            stats[h[0]].addOutCome(h[1], h[2])
     # print(stats.returnStats())
     # stats.printStats()
-    
+
+
 if __name__ == "__main__":
     hands = []
     hands.append([('Q','h'), ('K', 'h')])

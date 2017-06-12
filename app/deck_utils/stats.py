@@ -4,7 +4,7 @@ from app.deck_utils.deck_funcs import HAND_MAP
 class Stats():
     def __init__(self):
         self._hands = 0
-        self._stats_dict = {k : [] for k in range(9)}
+        self._stats_dict = {k : 0 for k in range(9)}
     
     def returnStats(self):
         return self._stats_dict
@@ -29,10 +29,14 @@ class Multi_Stats(Stats):
     
     def __init__(self):
         super().__init__()
+        self._stats_winloss = {k : 0 for k in range(3)}
+        self._stats_hand_winloss = {k : [0,0,0] for k in range(9)}
     
-    def addOutCome(self, outcome, win_loss):
+    def addOutCome(self, outcome, win_loss_split):
         self._hands += 1
-        self._stats_dict[outcome[0], win_loss] += 1
+        self._stats_winloss[win_loss_split] += 1
+        self._stats_dict[outcome[0]] += 1
+        self._stats_hand_winloss[outcome[0]][win_loss_split] += 1
     
     def printStats(self):
         print("Hand Results:")
