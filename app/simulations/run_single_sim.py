@@ -1,18 +1,25 @@
 import sys, json, pdb
 sys.path.append("/home/ubuntu/workspace/poker")
-from app.deck_cards.card import Card
-from app.deck_cards.deck import Deck
+from app.deck_utils.card import Card
+from app.deck_utils.deck import Deck
+from app.deck_utils.hand_rules import HandRules
+from app.deck_utils.deck_funcs import getCombinations
+from app.deck_utils.stats import Single_Stats
 
 def run_simulation(hand, board):
     ''' Will simulate the outcome for a given hand'''
     hand = [Card(h[0],h[1]) for h in hand]
     board = [Card(h[0],h[1]) for h in board]
     deck = Deck()
-    pdb.set_trace()
-    deck.removeUsedCards([c for c in (hand + board)])
-    print(deck._cards)
+    deck.removeCards(hand + board)
+    hand_combs = getCombinations(deck, 7-len(hand+board))
+    stats = Single_Stats()
+    for hc in hand_combs:
+        print([hc[0]] + hand + board)
+        stat = HandRules([hc[0]] + hand + board)
+        
     
 if __name__ == "__main__":
-    hand = [('A','h'), ('A', 's')]
-    board = [('A','c'), ('K', 's'), ('K', 'd'), ('K', 'h')]
+    hand = [('K','s'), ('10', 'h')]
+    board = [('3','d'), ('3', 's'), ('4', 'h'), ('J', 'c')]
     run_simulation(hand, board)

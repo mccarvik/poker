@@ -16,3 +16,12 @@ div.hand {
 h4 {
     color : #A9A9A9;
 }
+
+div.card {
+    padding-right : 10px;
+    width : 200px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
