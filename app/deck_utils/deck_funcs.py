@@ -16,6 +16,18 @@ VAL_MAP = {
         '2' : 2
     }
 
+HAND_MAP = {
+        0 : 'Hi Card',
+        1 : 'Pair',
+        2 : 'Two-Pair',
+        3 : 'Three of a Kind',
+        4 : 'Straight',
+        5 : 'Flush',
+        6 : 'Full House',
+        7 : 'Four of a Kind',
+        8 : 'Straight-Flush'
+    }
+
 def getCombinations(deck, cards_needed):
     deck = deck._cards
     return list(combinations(deck, cards_needed))

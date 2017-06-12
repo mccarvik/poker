@@ -3,25 +3,15 @@ import numpy as np
 from scipy.stats import mode
 from app.deck_utils.deck_funcs import VAL_MAP
 
+
+
 class HandRules():
     '''This class will determine what hand a given board and hand combo has'''
-    
-    HAND_MAP = {
-        0 : 'Hi Card',
-        1 : 'Pair',
-        2 : 'Two-Pair',
-        3 : 'Three of a Kind',
-        4 : 'Straight',
-        5 : 'Flush',
-        6 : 'Full House',
-        7 : 'Four of a Kind',
-        8 : 'Straight-Flush'
-    }
     
     def __init__(self, hand):
         hand.sort(key=lambda x: VAL_MAP[x._val], reverse=True)
         self._hand = hand
-        self.getHandResult()
+        self._result = self.getHandResult()
     
     def getHandResult(self):
         ''' Pseudo handler to determine the hand ranking
@@ -45,8 +35,12 @@ class HandRules():
                 result = (5, result[1][:5])
         
         result_pairs = self.checkPairs()
-        result = result if result[0] > result_pairs[0] else result_pairs
-        if result[0] > 4:
+        if not result:
+            result = result_pairs
+        else:
+            result = result if result[0] > result_pairs[0] else result_pairs
+        
+        if result[0] < 4:
             result_str = self.checkStraight()
             result = result_str if result_str else result
         return result
@@ -68,10 +62,14 @@ class HandRules():
             if hand[i] - hand[i+4] == 4:
                 return (4, hand[i])
             i+=1
+        
+        # Need this for 5 high straight
+        if hand[-1] == 2 and hand[-4] == 5 and hand[0] == 14:
+            return (4, 5)
+        
         return None
     
     def checkPairs(self):
-        pdb.set_trace()
         hand = self._hand
         mode_card = mode([n._val for n in hand])
         
