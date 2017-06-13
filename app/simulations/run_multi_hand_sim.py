@@ -14,7 +14,6 @@ def run_simulation(hands, board):
     deck.removeCards([h for hand in hands for h in hand] + board)
     hand_combs = getCombinations(deck, 7-len(hands[0]+board))
     stats = {}
-    pdb.set_trace()
     for h in hands:
         stats[str(h[0])+str(h[1])] = Multi_Stats()
         
@@ -22,9 +21,9 @@ def run_simulation(hands, board):
         hr = {}
         for h in hands:
             print([hc[0]] + h + board)
-            
+            pdb.set_trace()
             # TODO : Stuff here
-            res = HandRules([hc[0]] + h + board)
+            res = HandRules([hc[0]] + h + board)._result
             
             hr[str(h[0])+str(h[1])] = res
             
@@ -41,5 +40,4 @@ if __name__ == "__main__":
     hands.append([('A','h'), ('A', 's')])
     hands.append([('8','c'), ('7', 'c')])
     board = [('4','s'), ('3', 'd'), ('2', 's'), ('5', 's')]
-
     run_simulation(hands, board)
