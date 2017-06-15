@@ -29,7 +29,7 @@ class Multi_Stats(Stats):
     
     def __init__(self):
         super().__init__()
-        self._stats_winloss = {k : 0 for k in range(3)}
+        self._stats_winloss = {k : 0 for k in range(-1,2)}
         self._stats_hand_winloss = {k : [0,0,0] for k in range(9)}
     
     def addOutCome(self, outcome, win_loss_split):
@@ -40,5 +40,13 @@ class Multi_Stats(Stats):
     
     def printStats(self):
         print("Hand Results:")
+        print("Win / Split / Loss: \t{0}% / {1}% / {2}%".format(round((self._stats_winloss[1] / self._hands)*100, 2),
+                                                                round((self._stats_winloss[0] / self._hands)*100, 2),
+                                                                round((self._stats_winloss[-1] / self._hands)*100, 2)))
+        print("")
         for k,v in self._stats_dict.items():
-            print("{0}: {1}%".format(HAND_MAP[k], round((v / self._hands)*100, 2)))
+            if v > 0:
+                print("{0}: {1}% \t\tWin% (w/ outcome): {2}%".format(HAND_MAP[k], round((v / self._hands)*100, 2),
+                                                            round((self._stats_hand_winloss[k][1] / v)*100, 2)))
+            else:
+                print("{0}: {1}% \t\tWin% (w/ outcome): 0%".format(HAND_MAP[k], round((v / self._hands)*100, 2)))

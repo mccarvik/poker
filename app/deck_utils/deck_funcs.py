@@ -34,7 +34,39 @@ def getCombinations(deck, cards_needed):
 
 def evaluateWinner(hands):
     # should take in a list and return a list of corresponding outocmes
-    pass
+    max_hand = []
+    for h in hands:
+        if not max_hand:
+            max_hand.append(h)
+            continue
+        hvh = handVsHand(h, max_hand[0]) 
+        if hvh == 1:
+            max_hand = [h]
+        elif hvh == 0:
+            max_hand.append(h)
+    
+    win_list = []
+    for h in hands:
+        if h in max_hand:
+            if len(max_hand) > 1:
+                win_list.append(0)
+            else:
+                win_list.append(1)
+        else:
+            win_list.append(-1)
+    return win_list
     
     
+def handVsHand(h1, h2):
+    if h1[0] > h2[0]:
+        return 1
+    elif h1[0] < h2[0]:
+        return -1
+    else:
+        if h1[1] > h2[1]:
+            return 1
+        elif h1[1] < h2[1]:
+            return -1
+        else:
+            return 0
     

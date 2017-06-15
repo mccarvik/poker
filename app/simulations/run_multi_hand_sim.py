@@ -18,20 +18,21 @@ def run_simulation(hands, board):
         stats[str(h[0])+str(h[1])] = Multi_Stats()
         
     for hc in hand_combs:
-        hr = {}
+        res = []
         for h in hands:
             print([hc[0]] + h + board)
-            pdb.set_trace()
             # TODO : Stuff here
-            res = HandRules([hc[0]] + h + board)._result
-            
-            hr[str(h[0])+str(h[1])] = res
-            
-        hr = evaluateWinner(hr)
-        for h in hr:
-            stats[h[0]].addOutCome(h[1], h[2])
-    # print(stats.returnStats())
-    # stats.printStats()
+            res.append(HandRules([hc[0]] + h + board)._result)
+        
+        e = evaluateWinner(res)
+        for i in range(len(hands)):
+            stats[str(hands[i][0])+str(hands[i][1])].addOutCome(res[i], e[i])
+    
+    pdb.set_trace()
+    for k, sts in stats.items():
+        print('Cards: {0}'.format(k))
+        sts.printStats()
+        print("\n ---------------------- \n")
 
 
 if __name__ == "__main__":
