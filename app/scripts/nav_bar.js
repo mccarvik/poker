@@ -49,12 +49,34 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
         '3',
         '2'
     ];
-    $scope.suits = [
+  $scope.suits = [
         '\u2660',
         '\u2665',
         '\u2666',
         '\u2663'
     ];
+  
+  $scope.image = 'app/static/imgs/2c.png';
+  
+  $scope.cardSelect = function($event) {
+    var cardpair = '';
+    for (var i=0; i<event.target.classList.length; i++) {
+      if (event.target.classList[i].slice(0,5) === 'board') {
+        cardpair = event.target.classList[i]
+        break;
+      } else if (event.target.classList[i].slice(0,8) === 'holecard') {
+        cardpair = event.target.classList[i]
+        break;
+      }
+    }
+    
+    if (event.target.title === 'Suit') {
+      $scope.image = 'app/static/imgs/' + insertCard('Suit', this.Card, cardpair) + ".png";
+    } else {
+      $scope.image = 'app/static/imgs/' + insertCard('Value', this.Card, cardpair) + ".png";
+    }
+  };
+  
 });
 
 app.controller('MultiHandCtrl', function($scope, $compile) {

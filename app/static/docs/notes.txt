@@ -1,7 +1,7 @@
 libraries this project uses
 
 HTML: angular / bootstrap
-CSS: SASS
+CSS:
 JS:
     - server: nodejs, express
     - adding elements: jquery

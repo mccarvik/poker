@@ -7,10 +7,17 @@ div.container-fluid {
 }
 
 div.hand {
-    border-style : double;
-    /*border-style : dashed;*/
-    border-width : 4px;
-    border-color : maroon;
+    /*border-style : double;*/
+    border-left : 4px dashed maroon;
+    border-right : 4px dashed maroon;
+}
+
+div.top-border {
+    border-top : 4px dashed maroon;
+}
+
+div.bottom-border {
+    border-bottom : 4px dashed maroon;
 }
 
 h4 {
