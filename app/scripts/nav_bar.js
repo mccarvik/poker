@@ -56,7 +56,14 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
         '\u2663'
     ];
   
-  $scope.image = 'app/static/imgs/2c.png';
+  $scope.image = {
+        'holecard1' : '',
+        'holecard2' : '',
+        'board1' : '',
+        'board2' : '',
+        'board3' : '',
+        'board4' : '',
+  };
   
   $scope.cardSelect = function($event) {
     var cardpair = '';
@@ -71,9 +78,9 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
     }
     
     if (event.target.title === 'Suit') {
-      $scope.image = 'app/static/imgs/' + insertCard('Suit', this.Card, cardpair) + ".png";
+      $scope.image['cardpair'] = 'app/static/imgs/' + insertCard('Suit', this.Card, cardpair) + ".png";
     } else {
-      $scope.image = 'app/static/imgs/' + insertCard('Value', this.Card, cardpair) + ".png";
+      $scope.image['cardpair'] = 'app/static/imgs/' + insertCard('Value', this.Card, cardpair) + ".png";
     }
   };
   
