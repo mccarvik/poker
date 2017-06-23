@@ -4,7 +4,8 @@
 var express = require('express'),
     rts     = require('./routes'),
     http    = require('http'),
-    path    = require('path');
+    path    = require('path'),
+    bodyParser = require('body-parser');
 
 /***************
  * Configuration
@@ -16,6 +17,7 @@ app.set('views', __dirname + '/app/views');
 app.set('view engine', 'html');
 // This sets the root directory of the web server --> "" = current directory
 app.use(express.static(path.join(__dirname, '')));
+// app.use(bodyParser.json());
 
 
 /**************

@@ -15,6 +15,7 @@ exports.partials = function (req, res) {
 
 exports.python = function (req, res) {
   var name = req.params.name;
+  console.log(req);
   console.log(req.body);
   var myPythonScriptPath = '/app/handlers/' + name;
   // Use python shell
@@ -27,11 +28,12 @@ exports.python = function (req, res) {
   });
 
   pyshell.end(function (err) {
-    if (err)
-      throw err;
+    // if (err)
+    //   throw err;
     console.log('finished');
+    res.send('finished python stuff');
   });
-  res.send('finished python stuff');
+  // res.send('finished python stuff');
 };
 
 // http://www.sohamkamani.com/blog/2015/08/21/python-nodejs-comm/
