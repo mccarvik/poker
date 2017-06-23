@@ -15,7 +15,7 @@ exports.partials = function (req, res) {
 
 exports.python = function (req, res) {
   var name = req.params.name;
-  console.log(name);
+  console.log(req.body);
   var myPythonScriptPath = '/app/handlers/' + name;
   // Use python shell
   var PythonShell = require('python-shell');
