@@ -1,9 +1,9 @@
-function run_simulation(event) {
-    console.log('here4');
+function run_simulation(event, data) {
+    console.log('here');
     $.ajax({
         type: "POST",
         url: "/python/run_single_handler.py",
-        data: { param: "" },
+        data: { cards: data },
         success: callbackFunc
     });
 }

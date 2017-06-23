@@ -55,7 +55,6 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
         '\u2666',
         '\u2663'
     ];
-  
   $scope.image = {
         'holecard1' : '',
         'holecard2' : '',
@@ -63,6 +62,32 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
         'board2' : '',
         'board3' : '',
         'board4' : '',
+  };
+  $scope.cards = {
+    'holecard1' : {
+      'val' : undefined,
+      'suit' : undefined
+    },
+    'holecard2' : {
+      'val' : undefined,
+      'suit' : undefined
+    },
+    'board1' : {
+      'val' : undefined,
+      'suit' : undefined
+    },
+    'board2' : {
+      'val' : undefined,
+      'suit' : undefined
+    },
+    'board3' : {
+      'val' : undefined,
+      'suit' : undefined
+    },
+    'board4' : {
+      'val' : undefined,
+      'suit' : undefined
+    }
   };
   
   $scope.cardSelect = function($event) {
@@ -77,21 +102,26 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
       }
     }
     
+    var insC;
     if (event.target.title === 'Suit') {
-      $scope.image['cardpair'] = 'app/static/imgs/' + insertCard('Suit', this.Card, cardpair) + ".png";
+      insC = insertCard('Suit', this.Card, cardpair);
+      $scope.cards[cardpair]['suit'] = this.Card;
     } else {
-      $scope.image['cardpair'] = 'app/static/imgs/' + insertCard('Value', this.Card, cardpair) + ".png";
+      insC = insertCard('Value', this.Card, cardpair);
+      $scope.cards[cardpair]['val'] = this.Card;
     }
+    if (insC !== undefined) {
+      $scope.image[cardpair] = 'app/static/imgs/' + insC + ".png";
+    }
+  };
+  
+  $scope.run_sim = function($event) {
+    var data = run_simulation($event, $scope.cards);
   };
   
 });
 
 app.controller('MultiHandCtrl', function($scope, $compile) {
   console.log('inside multi hand controller');
-
-});
-
-app.controller('PlayLiveCtrl', function($scope, $compile) {
-  console.log('inside play live controller');
 
 });

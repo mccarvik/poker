@@ -20,19 +20,22 @@ function insertCard(s_v, input, cardpair) {
     if (s_v === 'Suit') {
         suit = input;
         suit = convertSuit[suit];
+        // setting the value of the select object
+        $("[title='Suit']").filter('.' + cardpair)[0].val = input;
         el = $("[title='Value']").filter('.' + cardpair)
-        val = el[0].selectedOptions[0].label.toLowerCase();
+        val = el[0].val;
     } else {
-        val = input.toLowerCase();
+        val = input;
+        $("[title='Value']").filter('.' + cardpair)[0].val = input;
         el = $("[title='Suit']").filter('.' + cardpair)
-        suit = el[0].selectedOptions[0].label;
+        suit = el[0].val;
         suit = convertSuit[suit];
     }
     
-    return(val + suit);
-    // if (val.toLowerCase() != 'value' and suit.toLowerCase() != 'suit') {
-    //     console.log(val + suit); 
-    // } else {
-    //     console.log("still waiting for other selection");
-    // }
+    if (val === undefined || suit === undefined) {
+        console.log("still waiting for other selection");
+        return undefined;
+    } else {
+        return(val + suit).toUpperCase();    
+    }
 }

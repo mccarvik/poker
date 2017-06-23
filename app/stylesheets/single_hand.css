@@ -32,3 +32,13 @@ div.card {
 .nowrap {
   white-space: nowrap;
 }
+
+img.card-img {
+    width : 152px;
+    height : 200px;
+    padding : 5px;
+}
+
+button.btn#run_sim_btn {
+    margin : 5px;
+}

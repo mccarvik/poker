@@ -38,8 +38,8 @@
             </div>
             <div class="row">
                <div class="col-sm-5 hand">
-                  <img ng-src="{{image['holecard1'}}"/>
-                  <!--<img ng-src="{{image}}"/>-->
+                  <img class='card-img' ng-src="{{image['holecard1']}}"/>
+                  <img class='card-img' ng-src="{{image['holecard2']}}"/>
                </div>
             </div>
             <div class="row">
@@ -48,43 +48,43 @@
                </div>
             </div>
             <div class="row">
-               <div class="col-sm-5 hand bottom-border">
-                  <select title='Value' class="card-select board1 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-options="x for x in vals">
+               <div class="col-sm-5 hand">
+                  <select title='Value' class="card-select board1 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in vals">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Suit' class="card-select board1 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-options="x for x in suits">
+                  <select title='Suit' class="card-select board1 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in suits">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Value' class="card-select board2 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-options="x for x in vals">
+                  <select title='Value' class="card-select board2 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in vals">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Suit' class="card-select board2 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-options="x for x in suits">
+                  <select title='Suit' class="card-select board2 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in suits">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Value' class="card-select board3 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-options="x for x in vals">
+                  <select title='Value' class="card-select board3 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in vals">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Suit' class="card-select board3 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-options="x for x in suits">
+                  <select title='Suit' class="card-select board3 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in suits">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Value' class="card-select board4 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-options="x for x in vals">
+                  <select title='Value' class="card-select board4 selectpicker show-tick" data-style="btn-info"data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in vals">
                      <option value="">(None)</option>
                   </select>
-                  <select title='Suit' class="card-select board4 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-options="x for x in suits">
+                  <select title='Suit' class="card-select board4 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in suits">
                      <option value="">(None)</option>
                   </select>
                </div>
             </div>
             <div class="row">
-               <div class="col-sm-5 hand">
-                  <!--<img ng-src="{{image}}"/>-->
-                  <!--<img ng-src="{{image}}"/>-->
-                  <!--<img ng-src="{{image}}"/>-->
-                  <!--<img ng-src="{{image}}"/>-->
+               <div class="col-sm-5 hand bottom-border">
+                  <img class='card-img' ng-src="{{image['board1']}}"/>
+                  <img class='card-img' ng-src="{{image['board2']}}"/>
+                  <img class='card-img' ng-src="{{image['board3']}}"/>
+                  <img class='card-img' ng-src="{{image['board4']}}"/>
                </div>
             </div>
+            <button id="run_sim_btn" class='btn btn-primary' ng-click="run_sim()">Run Simulation</button>
          </div>
-      <button id="run_sim_btn" class='btn btn-primary' onclick="run_simulation();"></button>
       </div>
    </body>
 </html>
