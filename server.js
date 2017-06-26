@@ -17,7 +17,9 @@ app.set('views', __dirname + '/app/views');
 app.set('view engine', 'html');
 // This sets the root directory of the web server --> "" = current directory
 app.use(express.static(path.join(__dirname, '')));
-// app.use(bodyParser.json());
+// Need this to send data through ajax
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true}));
 
 
 /**************

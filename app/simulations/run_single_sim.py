@@ -15,7 +15,7 @@ def run_simulation(hand, board):
     hand_combs = getCombinations(deck, 7-len(hand+board))
     stats = Single_Stats()
     for hc in hand_combs:
-        print([hc[0]] + hand + board)
+        # print([hc[0]] + hand + board)
         hr = HandRules([hc[0]] + hand + board)
         stats.addOutCome(hr._result)
     # print(stats.returnStats())

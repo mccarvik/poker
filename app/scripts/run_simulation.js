@@ -1,19 +1,26 @@
-function run_simulation(event, data) {
-    console.log('here');
-    console.log(data)
+function run_simulation(event, data, handleData) {
     
-    // https://stackoverflow.com/questions/10574374/how-do-i-retrieve-the-object-i-passed-in-jquery-ajaxs-data-attribute-on-the
+    var convert_suits = {
+        '\u2660' : 's',
+        '\u2665' : 'h',
+        '\u2666' : 'd',
+        '\u2663' : 'c'
+    };
+    
+    var conv_data = {};
+    for (var key in data) {
+        conv_data[key] = {'suit' : convert_suits[data[key]['suit']], 'val' : data[key]['val']};
+    }
+    
     $.ajax({
         type : "POST",
         url : "/python/run_single_handler.py",
-        contentType: "application/json",
-        data : data,
-        // contentType: "application/json; charset=utf-8",
-        success: callbackFunc
+        data : conv_data,
+        // data : JSON.parse(data),
+        success: function(response, result) {
+            // do something with the response
+            console.log(response[0]);
+            handleData(response[1]);
+        }
     });
 }
-
-function callbackFunc(response) {
-    // do something with the response
-    console.log(response);
-};

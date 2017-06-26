@@ -89,6 +89,7 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
       'suit' : undefined
     }
   };
+  $scope.results = '';
   
   $scope.cardSelect = function($event) {
     var cardpair = '';
@@ -116,7 +117,12 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
   };
   
   $scope.run_sim = function($event) {
-    var data = run_simulation($event, $scope.cards);
+    run_simulation($event, $scope.cards, $scope.handleData);
+  };
+  
+  $scope.handleData = function(data) {
+    $scope.results = data;
+    console.log(data);
   };
   
 });
