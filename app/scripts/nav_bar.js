@@ -121,7 +121,10 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
   };
   
   $scope.handleData = function(data) {
-    $scope.results = data;
+    // need this to force the update of the digest cycle
+    $scope.$apply(function(){
+      $scope.results = data;
+    });
     console.log(data);
   };
   

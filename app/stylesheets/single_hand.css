@@ -12,11 +12,11 @@ div.hand {
     border-right : 4px dashed maroon;
 }
 
-div.top-border {
+.top-border {
     border-top : 4px dashed maroon;
 }
 
-div.bottom-border {
+.bottom-border {
     border-bottom : 4px dashed maroon;
 }
 

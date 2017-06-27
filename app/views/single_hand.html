@@ -19,6 +19,10 @@
                <div class="col-sm-5 hand top-border">
                   <h4 class="lead text-center">Hole Cards</h4>
                </div>
+               <div class="col-sm-5 hand top-border">
+                  <h4 class="lead text-center">Results</h4>
+                  <p ng-bind="results"></p>
+               </div>
             </div>
             <div class="row">
                <div class="col-sm-5 hand">
@@ -34,10 +38,6 @@
                   <select title='Suit' class="card-select holecard2 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in suits">
                      <option value="">(None)</option>
                   </select>
-               </div>
-               <div class="col-sm-5 hand">
-                  <h4>Results</h4>
-                  <p ng-bind="results"></p>
                </div>
             </div>
             <div class="row">
