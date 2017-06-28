@@ -42,3 +42,14 @@ img.card-img {
 button.btn#run_sim_btn {
     margin : 5px;
 }
+
+ul.results {
+    font-family : comic, cursive, sans-serif;
+    
+}
+
+ul.results li {
+    padding: 0px 0px;
+    margin: -15px -15px;
+    font-size: 25px;
+}

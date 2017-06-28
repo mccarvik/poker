@@ -21,7 +21,9 @@
                </div>
                <div class="col-sm-5 hand top-border">
                   <h4 class="lead text-center">Results</h4>
-                  <p ng-bind="results"></p>
+                  <ul class='results' ng-repeat="res in results">
+                     <li>{{ res }}</li>
+                  </ul>
                </div>
             </div>
             <div class="row">

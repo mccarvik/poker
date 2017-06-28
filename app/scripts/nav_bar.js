@@ -89,7 +89,7 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
       'suit' : undefined
     }
   };
-  $scope.results = '';
+  $scope.results = [];
   
   $scope.cardSelect = function($event) {
     var cardpair = '';
@@ -122,10 +122,11 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
   
   $scope.handleData = function(data) {
     // need this to force the update of the digest cycle
-    $scope.$apply(function(){
-      $scope.results = data;
-    });
     console.log(data);
+    $scope.$apply(function(){
+      $scope.results = data.slice(1);
+    });
+    
   };
   
 });
