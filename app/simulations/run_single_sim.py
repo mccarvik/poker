@@ -16,12 +16,13 @@ def run_simulation(hand, board):
     stats = Single_Stats()
     for hc in hand_combs:
         # print([hc[0]] + hand + board)
-        hr = HandRules([hc[0]] + hand + board)
+        hr = HandRules(list(hc) + hand + board)
         stats.addOutCome(hr._result)
     # print(stats.returnStats())
     stats.printStats()
     
 if __name__ == "__main__":
     hand = [('Q','h'), ('K', 'h')]
-    board = [('4','s'), ('3', 's'), ('2', 's'), ('5', 's')]
+    # board = [('4','s'), ('3', 's'), ('2', 's'), ('5', 's')]
+    board = [('4','s'), ('3', 's')]
     run_simulation(hand, board)
