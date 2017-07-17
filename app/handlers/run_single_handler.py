@@ -17,7 +17,7 @@ def cleanInputs(args):
 
 if __name__ == "__main__":
     args = read_in()
-    args = {'board1': {'val': '10', 'suit': 'h'}, 'board2': {'val': '10', 'suit': 'd'}, 'holecard2': {'val': 'A', 'suit': 'c'}, 'board3': {'val': 'A', 'suit': 'd'}, 'holecard1': {'val': 'J', 'suit': 'd'}, 'board4': {'val': '9', 'suit': 'd'}}
+    # args = {'board1': {'val': '10', 'suit': 'h'}, 'board2': {'val': '10', 'suit': 'd'}, 'holecard2': {'val': 'A', 'suit': 'c'}, 'board3': {'val': 'A', 'suit': 'd'}, 'holecard1': {'val': 'J', 'suit': 'd'}, 'board4': {'val': '9', 'suit': 'd'}}
     hand, board = cleanInputs(args)
     # print(hand, board)
     run_simulation(hand, board)

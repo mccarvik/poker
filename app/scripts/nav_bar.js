@@ -89,6 +89,9 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
       'suit' : undefined
     }
   };
+  
+  $scope.saved_cards = {};
+  
   $scope.results = [];
   
   $scope.cardSelect = function($event) {

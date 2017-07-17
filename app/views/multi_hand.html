@@ -31,6 +31,7 @@
                   <select title='Suit' class="card-select holecard2 selectpicker show-tick" data-style="btn-info" data-width="75px" ng-model="Card" ng-change='cardSelect($event)' ng-options="x for x in suits">
                      <option value="">(None)</option>
                   </select>
+                  <button id="save_hand" class='btn btn-primary' ng-click="save_hand()">Save Hand</button>
                </div>
                <div class="row">
                   <img class='card-img' ng-src="{{image['holecard1']}}"/>
