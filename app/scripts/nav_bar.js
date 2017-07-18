@@ -271,6 +271,10 @@ app.controller('MultiHandCtrl', function($scope, $compile) {
   
   $scope.handleData = function(data) {
     // need this to force the update of the digest cycle
+    
+    for (var x=0; x<data.length; x++) {
+        data[x] = data[x].replace('tab','\t')
+    }
     console.log(data);
     $scope.$apply(function(){
       $scope.results = data.slice(1);

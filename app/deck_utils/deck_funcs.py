@@ -1,3 +1,4 @@
+import pdb
 from itertools import combinations
 
 VAL_MAP = {
@@ -58,15 +59,18 @@ def evaluateWinner(hands):
     
     
 def handVsHand(h1, h2):
+    # pdb.set_trace()
     if h1[0] > h2[0]:
         return 1
     elif h1[0] < h2[0]:
         return -1
     else:
-        if h1[1] > h2[1]:
-            return 1
-        elif h1[1] < h2[1]:
-            return -1
-        else:
-            return 0
+        for i in range(len(h1[1])):
+            if h1[1][i] > h2[1][i]:
+                return 1
+            elif h1[1][i] < h2[1][i]:
+                return -1
+            else:
+                continue
+    return 0
     

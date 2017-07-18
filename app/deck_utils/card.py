@@ -33,3 +33,15 @@ class Card():
             return True
         else:
             return False
+    
+    def __gt__(self, other):
+        if (self._val > other._val):
+            return True
+        else:
+            return False
+            
+    def __lt__(self, other):
+        if (self._val < other._val):
+            return True
+        else:
+            return False

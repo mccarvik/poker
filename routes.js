@@ -21,6 +21,7 @@ exports.python = function (req, res) {
   var PythonShell = require('python-shell');
   var pyshell = new PythonShell(myPythonScriptPath);
   var options = JSON.stringify(cards);
+  console.log(options);
   pyshell.send(options);
   var output = [];
   pyshell.on('message', function (message) {

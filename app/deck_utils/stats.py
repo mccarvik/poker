@@ -40,13 +40,13 @@ class Multi_Stats(Stats):
     
     def printStats(self):
         print("Hand Results:")
-        print("Win / Split / Loss: \t{0}% / {1}% / {2}%".format(round((self._stats_winloss[1] / self._hands)*100, 2),
+        print("Win / Split / Loss: tab{0}% / {1}% / {2}%".format(round((self._stats_winloss[1] / self._hands)*100, 2),
                                                                 round((self._stats_winloss[0] / self._hands)*100, 2),
                                                                 round((self._stats_winloss[-1] / self._hands)*100, 2)))
         print("")
         for k,v in self._stats_dict.items():
             if v > 0:
-                print("{0}: {1}% \t\tWin% (w/ outcome): {2}%".format(HAND_MAP[k], round((v / self._hands)*100, 2),
+                print("{0}: {1}% tabWin% (w/ outcome): {2}%".format(HAND_MAP[k], round((v / self._hands)*100, 2),
                                                             round((self._stats_hand_winloss[k][1] / v)*100, 2)))
             else:
-                print("{0}: {1}% \t\tWin% (w/ outcome): 0%".format(HAND_MAP[k], round((v / self._hands)*100, 2)))
+                print("{0}: {1}% tabWin% (w/ outcome): 0%".format(HAND_MAP[k], round((v / self._hands)*100, 2)))

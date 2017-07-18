@@ -54,6 +54,12 @@ ul.results li {
     font-size: 25px;
 }
 
+ul.results-multi li {
+    padding: 0px 0px;
+    margin: -15px -15px;
+    font-size: 15px;
+}
+
 .saved-hands {
     display : inline-block;
     text-align : right;

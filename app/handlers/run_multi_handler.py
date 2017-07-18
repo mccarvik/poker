@@ -10,13 +10,13 @@ def cleanInputs(args):
     hands = {}; board = [];
     for k,v in args.items():
         if 'holecard' in k:
-            hands[k] = []
+            hands[k[:-1]] = []
         elif 'saved' in k:
             hands[k[:6]] = []
     
     for k,v in args.items():
         if 'holecard' in k:
-            hands[k].append((args[k]['val'], args[k]['suit']))
+            hands[k[:-1]].append((args[k]['val'], args[k]['suit']))
         elif 'saved' in k:
             hands[k[:6]].append((args[k]['val'], args[k]['suit']))
         elif 'board' in k:
@@ -25,7 +25,9 @@ def cleanInputs(args):
 
 if __name__ == "__main__":
     args = read_in()
-    # args = {'board1': {'val': '10', 'suit': 'h'}, 'board2': {'val': '10', 'suit': 'd'}, 'holecard2': {'val': 'A', 'suit': 'c'}, 'board3': {'val': 'A', 'suit': 'd'}, 'holecard1': {'val': 'J', 'suit': 'd'}, 'board4': {'val': '9', 'suit': 'd'}}
+    # args = {"holecard1":{"suit":"c","val":"J"},"holecard2":{"suit":"c","val":"K"},
+    #         "board1":{"suit":"s","val":"6"},"board2":{"suit":"d","val":"7"},"board3":{"suit":"s","val":"7"},
+    #         "saved0_1":{"suit":"h","val":"K"},"saved0_2":{"suit":"s","val":"Q"}}
     hands, board = cleanInputs(args)
-    # print(hand, board)
+    # print(hands, board)
     run_simulation(hands, board)

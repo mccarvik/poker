@@ -81,8 +81,8 @@
             </div>
             <div class="col-sm-5 hand top-border">
                <h4 class="lead text-center">Results</h4>
-               <ul class='results' ng-repeat="res in results">
-                  <li>{{ res }}</li>
+               <ul class='results-multi' ng-trim="false" ng-repeat="res in results">
+                  <li ng-trim="false">{{ res }}</li>
                </ul>
             </div>
          </div>

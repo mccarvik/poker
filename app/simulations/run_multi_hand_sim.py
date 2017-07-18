@@ -15,24 +15,23 @@ def run_simulation(hands, board):
     hand_combs = getCombinations(deck, 7-len(hands[0]+board))
     stats = {}
     for h in hands:
+        # print(hands[0])
         stats[str(h[0])+str(h[1])] = Multi_Stats()
         
     for hc in hand_combs:
         res = []
         for h in hands:
-            print([hc[0]] + h + board)
-            # TODO : Stuff here
-            res.append(HandRules([hc[0]] + h + board)._result)
+            # print(list(hc) + h + board)
+            res.append(HandRules(list(hc) + h + board)._result)
         
         e = evaluateWinner(res)
         for i in range(len(hands)):
             stats[str(hands[i][0])+str(hands[i][1])].addOutCome(res[i], e[i])
     
-    pdb.set_trace()
     for k, sts in stats.items():
         print('Cards: {0}'.format(k))
         sts.printStats()
-        print("\n ---------------------- \n")
+        print("\n ------------------------------------------------------------------------ \n")
 
 
 if __name__ == "__main__":
