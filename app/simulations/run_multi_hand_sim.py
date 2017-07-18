@@ -8,7 +8,7 @@ from app.deck_utils.stats import Multi_Stats
 
 def run_simulation(hands, board):
     ''' Will simulate the outcome for a given hand'''
-    hands = [[Card(h[0],h[1]) for h in hand] for hand in hands]
+    hands = [[Card(h[0],h[1]) for h in hand] for hand in hands.values()]
     board = [Card(h[0],h[1]) for h in board]
     deck = Deck()
     deck.removeCards([h for hand in hands for h in hand] + board)

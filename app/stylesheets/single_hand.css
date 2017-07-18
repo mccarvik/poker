@@ -53,3 +53,9 @@ ul.results li {
     margin: -15px -15px;
     font-size: 25px;
 }
+
+.saved-hands {
+    display : inline-block;
+    text-align : right;
+    margin-left : 100px;
+}
