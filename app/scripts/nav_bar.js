@@ -277,7 +277,7 @@ app.controller('MultiHandCtrl', function($scope, $compile) {
     }
     console.log(data);
     $scope.$apply(function(){
-      $scope.results = data.slice(1);
+      $scope.results = data;
     });
     
   };

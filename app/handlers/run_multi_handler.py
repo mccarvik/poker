@@ -25,9 +25,7 @@ def cleanInputs(args):
 
 if __name__ == "__main__":
     args = read_in()
-    # args = {"holecard1":{"suit":"c","val":"J"},"holecard2":{"suit":"c","val":"K"},
-    #         "board1":{"suit":"s","val":"6"},"board2":{"suit":"d","val":"7"},"board3":{"suit":"s","val":"7"},
-    #         "saved0_1":{"suit":"h","val":"K"},"saved0_2":{"suit":"s","val":"Q"}}
+    # args = {"holecard1":{"suit":"d","val":"7"},"holecard2":{"suit":"d","val":"Q"},"board1":{"suit":"s","val":"2"},"board2":{"suit":"d","val":"3"},"board3":{"suit":"s","val":"4"},"board4":{"suit":"d","val":"5"},"saved0_1":{"suit":"s","val":"K"},"saved0_2":{"suit":"s","val":"A"}}
     hands, board = cleanInputs(args)
     # print(hands, board)
     run_simulation(hands, board)

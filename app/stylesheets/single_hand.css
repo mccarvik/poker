@@ -58,6 +58,7 @@ ul.results-multi li {
     padding: 0px 0px;
     margin: -15px -15px;
     font-size: 15px;
+    white-space: pre
 }
 
 .saved-hands {

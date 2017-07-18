@@ -60,12 +60,12 @@ class HandRules():
         i = 0
         while i + 4 < len(hand):
             if hand[i] - hand[i+4] == 4:
-                return (4, hand[i])
+                return (4, [hand[i]])
             i+=1
         
         # Need this for 5 high straight
         if hand[-1] == 2 and hand[-4] == 5 and hand[0] == 14:
-            return (4, 5)
+            return (4, [5])
         
         return None
     
