@@ -34,7 +34,7 @@ def getCombinations(deck, cards_needed):
     return list(combinations(deck, cards_needed))
 
 def evaluateWinner(hands):
-    # should take in a list and return a list of corresponding outocmes
+    # should take in a list and return a list of corresponding outcomes
     max_hand = []
     for h in hands:
         if not max_hand:
@@ -59,7 +59,7 @@ def evaluateWinner(hands):
     
     
 def handVsHand(h1, h2):
-    # pdb.set_trace()
+    pdb.set_trace()
     if h1[0] > h2[0]:
         return 1
     elif h1[0] < h2[0]:
