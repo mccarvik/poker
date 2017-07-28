@@ -75,7 +75,7 @@ class HandRules():
         
         if mode_card[1][0] == 4:
             left = [c for c in hand if c._val != mode_card[0][0]]
-            return (7, [mode_card[0][0], [left[0]]])
+            return (7, [VAL_MAP[mode_card[0][0]], left[0]])
         elif mode_card[1][0] == 1:
             return (0, self._hand[:5])
         elif mode_card[1][0] == 3:
@@ -84,10 +84,10 @@ class HandRules():
             mode_2 = mode([n._val for n in hand])
             if mode_2[1][0] > 1:
                 pair = mode_2[0][0]
-                return (6, [trip, pair])
+                return (6, [VAL_MAP[trip], VAL_MAP[pair]])
             else:
                 left = hand[:2]
-                return (3, [trip, left])
+                return (3, [VAL_MAP[trip]] + left)
         elif mode_card[1][0] == 2:
             pair = mode_card[0][0]
             hand = [h for h in hand if h._val != pair]
@@ -95,13 +95,13 @@ class HandRules():
             if mode_2[1][0] > 1:
                 pair2 = mode_2[0][0]
                 hand = [h for h in hand if h._val != pair2]
-                left = hand[:1]
+                left = hand[0]
                 if pair > pair2:
-                    return (2, [pair, pair2, left])
+                    return (2, [VAL_MAP[pair], VAL_MAP[pair2], left])
                 else:
-                    return (2, [pair2, pair, left])
+                    return (2, [VAL_MAP[pair2], VAL_MAP[pair], left])
             else:
                 left = hand[:3]
-                return (1, [pair, left])
+                return (1, [VAL_MAP[pair]] + left)
         return None
         

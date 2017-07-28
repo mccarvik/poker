@@ -59,12 +59,14 @@ def evaluateWinner(hands):
     
     
 def handVsHand(h1, h2):
-    pdb.set_trace()
     if h1[0] > h2[0]:
         return 1
     elif h1[0] < h2[0]:
         return -1
     else:
+        # if (h1[0] == 1):
+        #     pdb.set_trace()
+        #     print("")
         for i in range(len(h1[1])):
             if h1[1][i] > h2[1][i]:
                 return 1

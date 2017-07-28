@@ -1,4 +1,5 @@
 import pdb
+from app.deck_utils.deck_funcs import VAL_MAP
 
 class Card():
     ''' This class will represent a card and help display it thru debugging process'''
@@ -35,13 +36,13 @@ class Card():
             return False
     
     def __gt__(self, other):
-        if (self._val > other._val):
+        if (VAL_MAP[self._val] > VAL_MAP[other._val]):
             return True
         else:
             return False
             
     def __lt__(self, other):
-        if (self._val < other._val):
+        if (VAL_MAP[self._val] < VAL_MAP[other._val]):
             return True
         else:
             return False
