@@ -41,14 +41,50 @@ exports.python = function (req, res) {
 
 exports.mongo_post = function (req, res) {
   var data = req.body;
-  console.log('here possssssst');
-  console.log(data);
+  data = Object.keys(data)[0]
+  data = pruneData(data);
   
-  // var mongoose = require("mongoose");
-  // var outcome = require("./hand_outcomes");
-  // mongoose.connect("mongodb://localhost/outcomes");
+  
+  var mongoose = require("mongoose");
+  var outcome = require("./app/scripts/hand_outcomes");
+  mongoose.connect("mongodb://localhost/outcomes");
+  // var newOutcome = {name: name, image: image, description: desc, author:author}
+  //   // Create a new campground and save to DB
+  //   outcome.create(newOutcome, function(err, newlyCreated){
+  //       if(err){
+  //           console.log(err);
+  //       } else {
+  //           //redirect back to campgrounds page
+  //           console.log("successfully added entry to DB");
+  //       }
+  //   });
 }
 
+
+function pruneData(data) {
+  data = data.split(",")
+  data = data.slice(1,data.length);
+  for (var i=0; i < 9; i++) {
+    data[i] = JSON.parse(data[i]).split(":")[1];
+    data[i] = Number(data[i].substring(1, data[i].length-1));
+    console.log(data[i]);
+  }
+  var db_data = {};
+  db_data['hi_card'] = data[0];
+  db_data['pair'] = data[1]
+  db_data['two_pair'] = data[2]
+  db_data['three_kind'] = data[3]
+  db_data['straight'] = data[4]
+  db_data['flush'] = data[5]
+  db_data['full_house'] = data[6]
+  db_data['four_kind'] = data[7]
+  db_data['straight_flush'] = data[8]
+  
+  // need to parse cards
+  
+  console.log(db_data);
+  return db_data
+}
 
 
 
