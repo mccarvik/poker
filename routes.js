@@ -39,6 +39,15 @@ exports.python = function (req, res) {
   // res.send('finished python stuff');
 };
 
+exports.mongo_post = function (req, res) {
+  var data = req.body;
+  console.log('here possssssst');
+  console.log(data);
+  
+  // var mongoose = require("mongoose");
+  // var outcome = require("./hand_outcomes");
+  // mongoose.connect("mongodb://localhost/outcomes");
+}
 
 
 

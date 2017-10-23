@@ -39,3 +39,14 @@ function insertCard(s_v, input, cardpair) {
         return(val + suit).toUpperCase();    
     }
 }
+
+function callDB(data) {
+    $.ajax({
+        type: "POST",
+        url: "/mongo_post",
+        data: JSON.stringify(data),
+        success: function(){
+            console.log('here return');
+        }
+    });
+}

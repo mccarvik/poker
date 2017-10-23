@@ -1,3 +1,4 @@
+
 var app = angular.module("poker", [])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 
@@ -34,6 +35,7 @@ app.controller('NavCtrl',
 
 app.controller('SingleHandCtrl', function($scope, $compile) {
   console.log('inside single hand controller');
+  
   $scope.vals = [
         'A',
         'K',
@@ -124,12 +126,14 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
   };
   
   
-    $scope.handleData = function(data) {
+  $scope.handleData = function(data) {
     // need this to force the update of the digest cycle
     console.log(data);
     $scope.$apply(function(){
       $scope.results = data.slice(1);
     });
+    
+    callDB(data);
     
   };
   
