@@ -132,7 +132,7 @@ app.controller('SingleHandCtrl', function($scope, $compile) {
     $scope.$apply(function(){
       $scope.results = data.slice(1);
     });
-    data.push("cards: " + JSON.stringify($scope.cards));
+    data.push($scope.cards);
     callDB(data, $scope.cards);
     
   };
